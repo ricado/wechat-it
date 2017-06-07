@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/wechat-it-dao/wechat-it-dao.iml" filepath="$PROJECT_DIR$/wechat-it-dao/wechat-it-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wechatit.iml" filepath="$PROJECT_DIR$/wechatit.iml" />
+    </modules>
+  </component>
+</project>
