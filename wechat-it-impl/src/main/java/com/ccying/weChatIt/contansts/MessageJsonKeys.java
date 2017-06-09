@@ -6,7 +6,7 @@ package com.ccying.weChatIt.contansts;
  */
 public class MessageJsonKeys {
 
-    public static final String SubMsgType = "SubMsgType";
+    public static final String submsgtype = "SubMsgType";
     public static final String VoiceLength = "VoiceLength";
     public static final String FileName = "FileName";
     public static final String ImgHeight = "ImgHeight";

@@ -5,10 +5,13 @@ import com.ccying.weChatIt.contansts.AppInfo;
 import com.ccying.weChatIt.contansts.Message;
 import com.ccying.weChatIt.contansts.MessageJsonKeys;
 import com.ccying.weChatIt.contansts.RecommendInfo;
+import lombok.extern.slf4j.Slf4j;
 
 /**
+ * wechat相关的json操作
  * Created by creatchen on 2017/6/7.
  */
+@Slf4j
 public class WeChatJsonUtil {
     /**
      * 将json字符串转化成Message对象
