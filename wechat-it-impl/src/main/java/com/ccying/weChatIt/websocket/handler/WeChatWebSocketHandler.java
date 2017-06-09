@@ -3,10 +3,7 @@ package com.ccying.weChatIt.websocket.handler;
 import com.ccying.weChatIt.websocket.WebSocketConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import org.springframework.web.socket.CloseStatus;
-import org.springframework.web.socket.WebSocketHandler;
-import org.springframework.web.socket.WebSocketMessage;
-import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.*;
 
 /**
  * websocket的处理
@@ -20,13 +17,20 @@ public class WeChatWebSocketHandler implements WebSocketHandler {
     @Override
     public void afterConnectionEstablished(WebSocketSession webSocketSession) throws Exception {
         Long uid = (Long) webSocketSession.getAttributes().get("uid");
-        if (WebSocketConfig.getWebSocketSession(uid) == null) {
-            WebSocketConfig.setWebSocketSession(uid, webSocketSession);
-        }
+//        if (WebSocketConfig.getWebSocketSession(uid) == null) {
+        log.info("有新用户进入登录 >>> uid = {} ", uid);
+        WebSocketConfig.setWebSocketSession(uid, webSocketSession);
+//        }
     }
 
     @Override
     public void handleMessage(WebSocketSession webSocketSession, WebSocketMessage<?> webSocketMessage) throws Exception {
+        Long uid = (Long) webSocketSession.getAttributes().get("uid");
+        log.info("有新消息进入 >>> uid = {} ", uid);
+        if (webSocketMessage instanceof TextMessage) {
+            String text = ((TextMessage) webSocketMessage).getPayload();
+            log.info("文本消息 >>> content = {} ", text);
+        }
     }
 
     /**
@@ -51,6 +55,5 @@ public class WeChatWebSocketHandler implements WebSocketHandler {
     public boolean supportsPartialMessages() {
         return false;
     }
-
-
+    // 定下json格式的字符串
 }

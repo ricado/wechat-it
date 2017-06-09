@@ -24,13 +24,13 @@ public class SendWebSocketHandler {
      * @param message
      */
     public boolean sendMessageToUser(Long uid, String message) {
-        log.info("发送文本信息 >>> uid = {} , messgae = {}", uid, message);
+        log.info("发送文本信息 >>> uid = {} , message = {}", uid, message);
         TextMessage textMessage = new TextMessage(message);
         try {
             return sendMessageToUser(uid, textMessage);
         } catch (IOException e) {
             String error = e.getMessage();
-            log.info("发送文本信息失败 >>> uid = {} , message = {} ,eMessage = {} ", uid, message, error);
+            log.info("发送文本信息失败 >>> uid = {} , message = {} , eMessage = {} ", uid, message, error);
         }
         return false;
     }
